@@ -1,0 +1,311 @@
+
+@font-face {
+  font-family: "IvyPresto";
+  src:
+    url("./assets/IvyPresto/IvyPrestoDisplaySemiBold.otf") format("truetype");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "AntonioBold";
+  src:
+    url("./assets/Antonio/Antonio-Bold.ttf") format("truetype");
+  font-weight: 300;
+}
+@font-face {
+  font-family: "AntonioRegular";
+  src:    
+    url("./assets/Antonio/Antonio-Regular.ttf") format("truetype");
+  font-weight: 300;
+}
+
+:root {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  --ivyPresto: 'IvyPresto', serif;
+  --antonioBold: 'AntonioBold', sans-serif;
+  --antonioRegular: 'AntonioRegular', sans-serif;
+  --mainpink: #ffc2f8;
+  --mainred: #ff4d6d;
+  --highlightpink: #ffb0e6;
+  --highlightlime: #cfff5e;
+  --maingrey: #b3b3b3;
+}
+
+/* Name Bank Dashboard Styles */
+
+.name-bank-dashboard {
+  padding: 20px;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.dashboard-header h2 {
+  margin: 0;
+  color: #333;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.dashboard-actions {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.search-container {
+  position: relative;
+}
+
+.search-input {
+  padding: 10px 40px 10px 15px;
+  border: 2px solid #e1e5e9;
+  background-color: #e1e5e9;
+  border-radius: 6px;
+  font-size: 14px;
+  width: 280px;
+  transition: border-color 0.2s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+/* Clear Search Icon Styles */
+.clear-search-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: #666;
+  cursor: pointer;
+  padding: 4px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.clear-search-icon:hover {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.clear-search-icon:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.create-button {
+  background-color: var(--mainpink);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.create-button:hover {
+  background-color: var(--highlightpink);
+}
+
+.create-button:active {
+  transform: translateY(1px);
+}
+
+/* Button Group Styles */
+.button-group {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* Search Button Styles */
+.search-button {
+  background-color: var(--mainpink);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.search-button:hover {
+  background-color: var(--highlightpink);
+}
+
+.search-button:active {
+  transform: translateY(1px);
+}
+
+/* Search Status Styles */
+.search-status {
+  background-color: #e7f3ff;
+  border: 1px solid #b3d4fc;
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.search-status-text {
+  color: #0066cc;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.clear-search-button {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.clear-search-button:hover {
+  background-color: #5a6268;
+}
+
+.error-message {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 12px 16px;
+  border: 1px solid #f5c6cb;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.table-container {
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.action-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+  color: var(--maingrey)
+}
+
+.action-button:hover {
+  background-color: #f8f9fa;
+  color: #495057;
+}
+
+.action-button:active {
+  transform: scale(0.95);
+}
+
+.features-cell {
+  font-size: 12px;
+  color: #6c757d;
+  line-height: 1.4;
+}
+
+.notes-cell {
+  font-size: 12px;
+  color: #6c757d;
+  line-height: 1.4;
+  max-width: 200px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .name-bank-dashboard {
+    padding: 15px;
+    margin: 10px;
+  }
+  
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  
+  .dashboard-header h2 {
+    font-size: 24px;
+  }
+  
+  .dashboard-actions {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .search-input {
+    width: 100%;
+  }
+  
+  .button-group {
+    width: 100%;
+    flex-direction: column;
+  }
+  
+  .create-button, .search-button {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .search-status {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .clear-search-button {
+    align-self: flex-end;
+  }
+}
+
+@media (max-width: 480px) {
+  .name-bank-dashboard {
+    padding: 10px;
+  }
+  
+  .dashboard-header h2 {
+    font-size: 20px;
+  }
+  
+  .search-input {
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+}

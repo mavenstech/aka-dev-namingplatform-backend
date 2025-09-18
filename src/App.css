@@ -1,0 +1,76 @@
+/* Global App Styles */
+
+.app {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f8f9fa;  
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.app-logo {
+  height: 40px;
+  margin-left: 50px;
+  margin-right: 16px;
+}
+.app-header {
+  display: flex;
+  align-items: center;
+  padding: 16px 32px;  
+  border-bottom: 1px solid #333;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);  
+} 
+.app-header h1 {
+  margin: 0;  
+  font-family: var(--ivyPresto);
+  color: #000000;
+  font-size: 40px;
+  font-weight: 600;
+}
+
+.app-main {
+  padding: 30px 20px;
+  min-height: calc(100vh - 80px);
+}
+
+/* Global button reset and base styles */
+button {
+  font-family: inherit;
+  line-height: 1;
+}
+
+/* Focus styles for accessibility */
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+/* Loading spinner */
+.loading-spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid #007bff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Screen reader only class for accessibility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
