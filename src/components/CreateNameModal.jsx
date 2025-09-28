@@ -3,7 +3,7 @@ import Modal from 'react-modal';
 import { api } from '../services/api';
 import '../styles/Modal.css';
 
-const CreateNameModal = ({ isOpen, onRequestClose, onNameCreated }) => {
+const CreateNameModal = ({ isOpen, onRequestClose, onNameCreated, onNameCreatedKeepOpen }) => {
   // State for form data
   const [formData, setFormData] = useState({
     name: '',
@@ -151,6 +151,58 @@ const CreateNameModal = ({ isOpen, onRequestClose, onNameCreated }) => {
     }
   };
 
+  // Handle submit and add another
+  const handleSubmitAndAddAnother = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError(null);
+    setSuccess(false);
+
+    try {
+      // Prepare the data for API call with namefeatures object
+      const namefeatures = {};
+      availableFeatures.forEach(feature => {
+        namefeatures[feature] = formData.features.includes(feature);
+      });
+      
+      const createData = {
+        name: formData.name,
+        category: formData.category,
+        notes: formData.notes,
+        namefeatures: namefeatures
+      };
+
+      // Call the create API
+      await api.names.createName(createData);
+      
+      setSuccess(true);
+      
+      // Call the parent's callback to refresh the data without closing modal
+      if (onNameCreatedKeepOpen) {
+        onNameCreatedKeepOpen();
+      }
+      
+      // Reset form for next entry
+      setFormData({
+        name: '',
+        category: '',
+        notes: '',
+        features: []
+      });
+      
+      // Clear success message after showing it briefly
+      setTimeout(() => {
+        setSuccess(false);
+      }, 1000);
+      
+    } catch (err) {
+      setError('Failed to create name. Please try again.');
+      console.error('Error creating name:', err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   // Handle modal close
   const handleClose = () => {
     if (!loading) {
@@ -276,13 +328,23 @@ const CreateNameModal = ({ isOpen, onRequestClose, onNameCreated }) => {
           >
             Cancel
           </button>
-          <button
-            type="submit"
-            disabled={loading || !formData.name || !formData.category}
-            className="button button-primary"
-          >
-            {loading ? 'Creating...' : 'Create Name'}
-          </button>
+          <div className="button-group-right">
+            <button
+              type="button"
+              onClick={handleSubmitAndAddAnother}
+              disabled={loading || !formData.name || !formData.category}
+              className="button button-tertiary"
+            >
+              {loading ? 'Creating...' : 'Create Name, Add Another'}
+            </button>
+            <button
+              type="submit"
+              disabled={loading || !formData.name || !formData.category}
+              className="button button-primary"
+            >
+              {loading ? 'Creating...' : 'Create Name'}
+            </button>
+          </div>
         </div>
       </form>
     </Modal>

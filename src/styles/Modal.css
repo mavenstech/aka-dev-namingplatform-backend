@@ -73,6 +73,8 @@
   color: #333;
   font-size: 20px;
   font-weight: 600;
+  text-transform: uppercase;
+  font-family: var(--antonioBold);
 }
 
 .modal-close-button {
@@ -88,6 +90,7 @@
   justify-content: center;
   border-radius: 50%;
   transition: background-color 0.2s ease;
+  
 }
 
 .modal-close-button:hover {
@@ -115,6 +118,8 @@
   font-weight: 500;
   color: #333;
   font-size: 14px;
+  text-transform: uppercase;
+  font-family: var(--antonioRegular);
 }
 
 .form-input {
@@ -235,7 +240,8 @@ select.form-input {
   cursor: pointer;
   transition: all 0.2s ease;
   min-width: 80px;
-  
+  text-transform: uppercase;
+  font-family: var(--antonioRegular);
 }
 
 .button:disabled {
@@ -269,9 +275,31 @@ select.form-input {
   transform: translateY(1px);
 }
 
+.button-tertiary {
+  background-color: #6c757d;
+  color: white;
+  border: 1px solid #6c757d;
+}
+
+.button-tertiary:hover:not(:disabled) {
+  background-color: #5a6268;
+  border-color: #5a6268;
+}
+
+.button-tertiary:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+/* Button group for modal actions */
+.button-group-right {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
 .error-message {
   background-color: #f8d7da;
-  color: #721c24;
+  color: var(--mainred);
   padding: 12px 16px;
   border: 1px solid #f5c6cb;
   border-radius: 6px;
@@ -281,7 +309,7 @@ select.form-input {
 
 .success-message {
   background-color: #d4edda;
-  color: #155724;
+  color: var(--maingrey);
   padding: 12px 16px;
   border: 1px solid #c3e6cb;
   border-radius: 6px;
@@ -315,6 +343,13 @@ select.form-input {
   
   .modal-actions {
     flex-direction: column;
+    gap: 15px;
+  }
+  
+  .button-group-right {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
   }
   
   .button {

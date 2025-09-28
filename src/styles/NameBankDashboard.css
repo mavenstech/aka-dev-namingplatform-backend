@@ -34,7 +34,7 @@
 
 /* Name Bank Dashboard Styles */
 
-.name-bank-dashboard {
+.name-bank-dashboard {  
   padding: 20px;
   width: 100%;
   background-color: #fff;
@@ -46,6 +46,7 @@
 }
 
 .dashboard-header {
+    font-family: var(--antonioRegular);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -79,7 +80,8 @@
   border-radius: 6px;
   font-size: 14px;
   width: 280px;
-  transition: border-color 0.2s ease;
+  transition: border-color 0.2s ease;  
+  font-family: var(--antonioRegular);
 }
 
 .search-input:focus {
@@ -127,6 +129,8 @@
   font-weight: 500;
   cursor: pointer;
   transition: background-color 0.2s ease;
+  text-transform: uppercase;
+  font-family: var(--antonioRegular);
 }
 
 .create-button:hover {
@@ -155,6 +159,8 @@
   font-weight: 500;
   cursor: pointer;
   transition: background-color 0.2s ease;
+  text-transform: uppercase;
+  font-family: var(--antonioRegular);
 }
 
 .search-button:hover {

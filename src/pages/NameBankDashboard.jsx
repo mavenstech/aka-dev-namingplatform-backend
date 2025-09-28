@@ -111,6 +111,11 @@ const NameBankDashboard = () => {
     handleModalClose();
   };
 
+  // Handle successful name creation without closing modal (for Add Another)
+  const handleNameCreatedKeepOpen = () => {
+    fetchNames(); // Refresh the list only
+  };
+
   // Handle search modal actions
   const handleSearchClick = () => {
     setIsSearchModalOpen(true);
@@ -226,6 +231,8 @@ const NameBankDashboard = () => {
         borderTopStyle: 'solid',
         borderTopWidth: '1px',
         borderTopColor: '#e9ecef',
+        fontFamily: 'var(--antonioBold)',
+        textTransform: 'uppercase',
       },
     },
     headCells: {
@@ -362,6 +369,7 @@ const NameBankDashboard = () => {
         isOpen={isCreateModalOpen}
         onRequestClose={handleModalClose}
         onNameCreated={handleNameCreated}
+        onNameCreatedKeepOpen={handleNameCreatedKeepOpen}
       />
 
       {/* Search Names Modal */}
